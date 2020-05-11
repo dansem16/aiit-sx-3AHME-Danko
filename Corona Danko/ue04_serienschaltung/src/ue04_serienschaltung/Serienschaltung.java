@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ue04_serienschaltung;
-
+import java.util.*;
 
 /**
  *
@@ -12,12 +12,11 @@ package ue04_serienschaltung;
  */
 public class Serienschaltung {
 
-    /**
-     *
-     */
+    
     private double strom;
     private double spannung;
     private double widerstandFeld[];
+    ArrayList list = new ArrayList();
 
     
     public void updateSpannung() {
