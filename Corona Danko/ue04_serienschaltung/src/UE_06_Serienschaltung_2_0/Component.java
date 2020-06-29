@@ -1,83 +1,62 @@
-
 package UE_06_Serienschaltung_2_0;
 
 import java.util.Locale;
-
 
 /**
  *
  * @author danko
  */
-public class Component {
-    private String id;
-    private double value;
+
+public abstract class Component {
+    final String id;
+    final double value;
     private double voltage;
     private double current;
-    
-    public Component(String id,double value ){
-        
-    }
 
+    public Component (String id, double value) {
+        this.id = id;
+        this.value = value;
+    }
 
     public String getId () {
         return id;
     }
-    
 
     public double getValue () {
         return value;
     }
 
-
     public double getVoltage () {
         return voltage;
     }
-
-
-    public void setVoltage (double voltage) {
-        this.voltage = voltage;
-    }
-
 
     public double getCurrent () {
         return current;
     }
 
+    public void setVoltage (double voltage) {
+        this.voltage = voltage;
+    }
 
     public void setCurrent (double current) {
         this.current = current;
     }
     
-    public double power(){
-        return current * voltage;   
+    public double power () {
+        return voltage * current;
     }
     
-    public String formattedValue(){
-        return null;
-        
+    public String formattedValue (Locale locale) {
+        return String.format(locale, "%.2f%s", value, unit());
     }
-    
-    public String formattedValue(Locale locale){
-        return null;
-        
-    }
-
 
     @Override
     public String toString () {
         return "Component{" + "id=" + id + ", value=" + value + ", voltage=" + voltage + ", current=" + current + '}';
     }
     
-    public final String unit(){
-        return null;
-        
-    }
+    public abstract String unit ();
     
-    public final String energy(){
-        return null;
-        
-    }
-    
-    
+    public abstract double energy ();
     
 }
